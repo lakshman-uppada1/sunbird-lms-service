@@ -41,11 +41,11 @@ public class RoleGroupDaoImpl implements RoleGroupDao {
     
     List<RoleGroup> roleGroupList = mapper.convertValue(roleGroupMapList, roleGroupType);
     System.out.println("***************roleGroupList************"+roleGroupList);
-    
-    for(RoleGroup rg : roleGroupList) {
-        System.out.println("***************roleGroupList rg ************"+rg.getUrlActionIds()+ " == ****="+ rg.getName());
-    }
-    
+   for(RoleGroup rg : roleGroupList) {
+      System.out.println("***************roleGroupList getUrlActionIds************  : "+rg.getUrlActionIds());
+      System.out.println("***************roleGroupList getName************ : "+rg.getName());
+      System.out.println("-------------------------------------------------------------------");
+   }
     return roleGroupList;
   }
 
