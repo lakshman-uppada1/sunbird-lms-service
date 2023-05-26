@@ -27,7 +27,7 @@ public class RoleService {
     Response response = new Response();
     List<Map<String, Object>> roleMapList = new ArrayList<>();
     List<Role> roleList = roleDao.getRoles(context);
-
+    System.out.println("****************** roleList are *************************************** : "+roleList);
     if (CollectionUtils.isNotEmpty(roleList)) {
 
       for (Role role : roleList) {
