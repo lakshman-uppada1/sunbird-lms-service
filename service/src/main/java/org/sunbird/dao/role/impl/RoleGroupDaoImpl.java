@@ -42,35 +42,12 @@ public class RoleGroupDaoImpl implements RoleGroupDao {
     System.out.println("***************roleGroupMapList************ : "+roleGroupMapList);
      System.out.println("***************roleGroupMapList************ : "+roleGroupMapList.size());
     
-    //List<RoleGroup> roleGroupList = mapper.convertValue(roleGroupMapList, roleGroupType);
-     List<RoleGroup> roleGroupList = this.convertValue();
+    List<RoleGroup> roleGroupList = mapper.convertValue(roleGroupMapList, roleGroupType);
+     //List<RoleGroup> roleGroupList = this.convertValue();
     
     return roleGroupList;
   }
   
-  private List<RoleGroup> convertValue() {
-                List<RoleGroup> roleGroupList = new ArrayList();
-                
-                RoleGroup rg1 = new RoleGroup();
-                rg1.setId("COURSE_MENTOR");
-                rg1.setName("Course Mentor");
-                rg1.setUrlActionIds(Arrays.asList(new String[] {"courseMentor"}));
-                roleGroupList.add(rg1);
-                
-                RoleGroup rg2 = new RoleGroup();
-                rg2.setId("MEMBERSHIP_MANAGEMENT");
-                rg2.setName("Membership Management");
-                rg2.setUrlActionIds(Arrays.asList(new String[] {"addMember", "removeMember", "suspendMember"}));
-                roleGroupList.add(rg2);
-                
-                RoleGroup rg3 = new RoleGroup();
-                rg3.setId("SYSTEM_ADMINISTRATION");
-                rg3.setName("System Administration");
-                rg3.setUrlActionIds(Arrays.asList(new String[] {"suspendOrg", "suspendUser", "orgupload"}));
-                roleGroupList.add(rg3);
-                return roleGroupList;
-  }
-
   public CassandraOperation getCassandraOperation() {
     return ServiceFactory.getInstance();
   }
