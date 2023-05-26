@@ -32,9 +32,15 @@ public class RoleGroupDaoImpl implements RoleGroupDao {
     Response roleGroupResults =
         getCassandraOperation().getAllRecords(KEYSPACE_NAME, TABLE_NAME, context);
     TypeReference<List<RoleGroup>> roleGroupType = new TypeReference<List<RoleGroup>>() {};
+    System.out.println("***************roleGroupResults************"+roleGroupResults);
     List<Map<String, Object>> roleGroupMapList =
         (List<Map<String, Object>>) roleGroupResults.get(JsonKey.RESPONSE);
+    
+    System.out.println("***************roleGroupMapList************ : "+roleGroupMapList);
+     System.out.println("***************roleGroupMapList************ : "+roleGroupMapList.size());
+    
     List<RoleGroup> roleGroupList = mapper.convertValue(roleGroupMapList, roleGroupType);
+    System.out.println("***************roleGroupList************"+roleGroupList);
     return roleGroupList;
   }
 
