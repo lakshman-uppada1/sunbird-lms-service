@@ -48,7 +48,15 @@ public class RoleService {
           actionGroupMap.put(JsonKey.NAME, roleGroupMap.get(JsonKey.NAME));
 
           List<Map<String, Object>> urlActionMapList = new ArrayList<>();
+          
+          System.out.println("****************** roleGroupMap are *************************************** : "+roleGroupMap);
+          
+          System.out.println("****************** JsonKey.URL_ACTION_ID are *************************************** : "+JsonKey.URL_ACTION_ID);
+          
+          
           List<String> urlActionIds = (List) roleGroupMap.get(JsonKey.URL_ACTION_ID);
+          
+          System.out.println("****************** urlActionIds are *************************************** : "+urlActionIds);
 
           for (String urlActionId : urlActionIds) {
             urlActionMapList.add(UrlActionService.getUrlActionMap(urlActionId));
