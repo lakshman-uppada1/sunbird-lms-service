@@ -39,6 +39,8 @@ public class CassandraConnectionManagerImpl implements CassandraConnectionManage
       return session;
     } else {
       Session session2 = cluster.connect(keyspace);
+      System.out.println("********** session2 is **********: "+session2);
+      System.out.println("********** keyspace is **********: "+keyspace);
       cassandraSessionMap.put(keyspace, session2);
       return session2;
     }
@@ -70,9 +72,12 @@ public class CassandraConnectionManagerImpl implements CassandraConnectionManage
 
       //check for multi DC enabled or not from configuration file and send the value
       cluster = createCluster(hosts, poolingOptions, Boolean.parseBoolean(cache.getProperty(Constants.IS_MULTI_DC_ENABLED)));
+       System.out.println("********** hosts is **********: "+hosts);
+       System.out.println("********** poolingOptions is **********: "+poolingOptions);
 
 
       final Metadata metadata = cluster.getMetadata();
+      System.out.println("********** metadata is **********: "+metadata);
       String msg = String.format("Connected to cluster: %s", metadata.getClusterName());
       logger.info("createCassandraConnection :" + msg);
 
