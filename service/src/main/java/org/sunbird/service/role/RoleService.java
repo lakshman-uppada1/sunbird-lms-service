@@ -41,6 +41,7 @@ public class RoleService {
 
         Map<String, Object> actionGroupMap;
         for (String roleGroupId : roleGroupIdList) {
+          System.out.println("****************** roleGroupId are *************************************** : "+roleGroupId);
           Map<String, Object> roleGroupMap = roleGroupService.getRoleGroupMap(roleGroupId, context);
 
           actionGroupMap = new HashMap<>();
