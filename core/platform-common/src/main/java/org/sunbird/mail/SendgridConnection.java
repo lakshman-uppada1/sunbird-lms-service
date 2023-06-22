@@ -52,6 +52,9 @@ public class SendgridConnection {
 
       props.put("mail.smtp.auth", "true");
       props.put("mail.smtp.port", port);
+      props.put("mail.smtp.auth.login.disable", "true");
+      props.put("mail.smtp.starttls.enable", "true");
+      props.put("mail.smtp.starttls.required", "true");
 
       session = Session.getInstance(props, new GMailAuthenticator(userName, password));
       transport = session.getTransport("smtp");
