@@ -17,8 +17,10 @@ import play.mvc.Http;
 import play.mvc.Result;
 import util.Attrs;
 import util.Common;
+import org.sunbird.logging.LoggerUtil;
 
 public class UserController extends BaseController {
+private static final LoggerUtil logger = new LoggerUtil(UserController.class);  
 
   @Inject
   @Named("sso_user_create_actor")
@@ -108,6 +110,7 @@ public class UserController extends BaseController {
   }
 
   public CompletionStage<Result> createSSUUser(Http.Request httpRequest) {
+    logger.debug{"1111111111 httpRequest"+ httpRequest.toString()};
     return handleRequest(
         ssuUserCreateActor,
         ActorOperations.CREATE_SSU_USER.getValue(),
