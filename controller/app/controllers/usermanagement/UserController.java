@@ -110,7 +110,7 @@ private static final LoggerUtil logger = new LoggerUtil(UserController.class);
   }
 
   public CompletionStage<Result> createSSUUser(Http.Request httpRequest) {
-    logger.debug{"1111111111 httpRequest"+ httpRequest.toString()};
+    logger.debug("1111111111 httpRequest"+ httpRequest.toString());
     return handleRequest(
         ssuUserCreateActor,
         ActorOperations.CREATE_SSU_USER.getValue(),
