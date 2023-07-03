@@ -105,6 +105,7 @@ public class UserRequestValidator extends BaseRequestValidator {
   }
 
   public void validateUserCreateV3(Request userRequest) {
+    System.out.println(" 111111 userRequest "+ userRequest.toString());
     validateParam(
         (String) userRequest.getRequest().get(JsonKey.FIRST_NAME),
         ResponseCode.mandatoryParamsMissing,
@@ -118,6 +119,7 @@ public class UserRequestValidator extends BaseRequestValidator {
               ResponseCode.invalidParameter.getErrorMessage(),
               JsonKey.EMAIL + " or " + JsonKey.PHONE));
     }
+    System.out.println(" 22222 userRequest "+ userRequest.getRequest().get(JsonKey.FIRST_NAME));
 
     if ((StringUtils.isNotBlank((String) userRequest.getRequest().get(JsonKey.EMAIL))
             || StringUtils.isNotBlank((String) userRequest.getRequest().get(JsonKey.PHONE)))
@@ -125,6 +127,7 @@ public class UserRequestValidator extends BaseRequestValidator {
       ProjectCommonException.throwClientErrorException(
           ResponseCode.OnlyEmailorPhoneorManagedByRequired);
     }
+    System.out.println(" 33333 userRequest "+ userRequest.getRequest().get(JsonKey.FIRST_NAME));
     validatePassword((String) userRequest.getRequest().get(JsonKey.PASSWORD));
     if (StringUtils.isNotBlank((String) userRequest.getRequest().get(JsonKey.EMAIL))) {
       validateEmail((String) userRequest.getRequest().get(JsonKey.EMAIL));
@@ -132,6 +135,7 @@ public class UserRequestValidator extends BaseRequestValidator {
     if (StringUtils.isNotBlank((String) userRequest.getRequest().get(JsonKey.PHONE))) {
       validatePhone((String) userRequest.getRequest().get(JsonKey.PHONE));
     }
+    System.out.println(" 444444 userRequest "+ userRequest.getRequest().get(JsonKey.FIRST_NAME));
     if ((null == userRequest.getRequest().get(JsonKey.DOB_VALIDATION_DONE))) {
       validateDob(userRequest);
     }
